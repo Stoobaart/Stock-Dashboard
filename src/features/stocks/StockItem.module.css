@@ -1,0 +1,56 @@
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border-radius: 8px;
+  background: #f5f5f5;
+}
+
+.symbol {
+  font-weight: 600;
+  color: #3d3d3d;
+}
+
+.price {
+  font-size: 1.1rem;
+  color: #3d3d3d;
+}
+
+.up {
+  color: green;
+}
+
+.down {
+  color: red;
+}
+
+.flashUp {
+  animation: flashGreen 0.4s ease;
+}
+
+.flashDown {
+  animation: flashRed 0.4s ease;
+}
+
+@keyframes flashGreen {
+  0% {
+    background-color: rgba(0, 255, 0, 0.35);
+    transform: scale(1);
+  }
+  100% {
+    background-color: #f5f5f5;
+    transform: scale(1.01);
+  }
+}
+
+@keyframes flashRed {
+  0% {
+    background-color: rgba(255, 0, 0, 0.35);
+    transform: scale(1);
+  }
+  100% {
+    background-color: #f5f5f5;
+    transform: scale(1.01);
+  }
+}
