@@ -1,17 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-
-type Stock = {
-  id: string;
-  symbol: string;
-  price: number;
-  previousPrice?: number;
-};
-
-type StocksState = {
-  stocks: Stock[]
-  loading: boolean;
-  error: string | null;
-}
+import { StocksState } from './types';
 
 const initialState: StocksState = {
   stocks: [],
