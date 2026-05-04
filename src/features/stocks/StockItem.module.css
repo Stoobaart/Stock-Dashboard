@@ -36,21 +36,17 @@
 @keyframes flashGreen {
   0% {
     background-color: rgba(0, 255, 0, 0.35);
-    transform: scale(1);
   }
   100% {
     background-color: #f5f5f5;
-    transform: scale(1.01);
   }
 }
 
 @keyframes flashRed {
   0% {
     background-color: rgba(255, 0, 0, 0.35);
-    transform: scale(1);
   }
   100% {
     background-color: #f5f5f5;
-    transform: scale(1.01);
   }
 }
