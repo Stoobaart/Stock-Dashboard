@@ -10,6 +10,6 @@ describe('App Component', () => {
         <App />
       </Provider>
     );
-    expect(screen.getByText(/Stock Dashboard Exercise/i)).toBeInTheDocument();
+    expect(screen.getByText(/Stock Dashboard/i)).toBeInTheDocument();
   });
 });

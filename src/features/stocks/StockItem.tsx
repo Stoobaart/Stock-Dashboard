@@ -39,7 +39,7 @@ const StockItem = ({ stock }: { stock: Stock }) => {
     <div className={cardClassName} onAnimationEnd={handleAnimationEnd}>
       <span className={styles.symbol}>{stock.symbol}</span>
       <span className={priceClassName}>
-         ${stock.price.toFixed(2)}
+        ${stock.price.toFixed(2)} {direction === "up" ? "▲" : direction === "down" ? "▼" : ""}
        </span>
     </div>
   );

@@ -54,15 +54,29 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+main {
+  width: 70vw;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: #ffffff;
+    background: #f8fafc;
+    background: linear-gradient(to bottom, #f8fafc, #b5bcc4);
   }
   a:hover {
     color: #747bff;
   }
   button {
     background-color: #f9f9f9;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    background: #f8fafc;
+    background: linear-gradient(to bottom, #69696b, #1c1d1f);
   }
 }
