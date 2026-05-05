@@ -4,7 +4,7 @@ import { store } from './store/store';
 import App from './App';
 
 describe('App Component', () => {
-  it('renders the generic exercise heading', () => {
+  it('renders the app heading', () => {
     render(
       <Provider store={store}>
         <App />

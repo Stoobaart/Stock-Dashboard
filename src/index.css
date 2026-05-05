@@ -1,5 +1,5 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Inter, system-ui, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -24,8 +24,6 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -55,7 +53,7 @@ button:focus-visible {
 }
 
 main {
-  width: 70vw;
+  max-width: 900px;
   margin: 0 auto;
   padding: 2rem;
 }
@@ -63,7 +61,6 @@ main {
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background: #f8fafc;
     background: linear-gradient(to bottom, #f8fafc, #b5bcc4);
   }
   a:hover {
@@ -76,7 +73,6 @@ main {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    background: #f8fafc;
     background: linear-gradient(to bottom, #69696b, #1c1d1f);
   }
 }
