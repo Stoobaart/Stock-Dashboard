@@ -67,20 +67,25 @@ In a production setting, I would likely consider a server-state library such as 
 The implementation avoids over-abstraction in favour of readability and maintainability.
 
 ## Project Structure
-src/
-  features/stocks/
-    StockList.tsx
-    StockItem.tsx
-    stocksSlice.ts
-    useStocks.ts
-    types.ts
-    *.test.ts(x)
-    *.module.css
-  store/
-    store.ts
-  services/
-    mockStockService.ts
 
+```text
+src/
+  features/
+    stocks/
+      StockList.tsx          // Renders grid/list of all stocks + handles loading/error states
+      StockItem.tsx          // Individual stock card + price direction UI + flash animation
+      stocksSlice.ts         // Redux slice (state, reducers, real-time updates)
+      useStocks.ts           // Custom hook: fetch initial data + subscribe to live updates
+      types.ts               // Shared TypeScript types for stock domain
+      *.test.ts(x)           // Unit tests for slice + UI components
+      *.module.css           // Scoped styles for stocks feature components
+
+  store/
+    store.ts                 // Redux store configuration (single source of truth)
+
+  services/
+    mockStockService.ts      // Mock API + real-time stock update simulator
+```
 
 # ORIGINAL EXERCISE BRIEF
 
