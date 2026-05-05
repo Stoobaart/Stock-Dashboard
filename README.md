@@ -1,3 +1,89 @@
+# Real-Time Stock Dashboard
+
+## Overview
+
+This project is a single-page application that displays a list of stocks with real-time price updates.
+
+It fetches an initial dataset and then updates prices live via a subscription, indicating whether each stock has gone up or down and briefly highlighting changes with a flash animation.
+
+The focus of the implementation was to keep the code simple, predictable, and easy to follow while handling real-time updates correctly.
+
+---
+
+# Getting Started
+
+## Prerequisites
+- Node.js >= 20
+
+## Install dependencies
+`npm install`
+
+## Run the application
+`npm run dev`
+
+## Run tests:
+`npm run test`
+
+# Implementation Notes
+
+## State Management
+* Redux Toolkit is used to manage stock data, as it represents shared, continuously updating state across the application.
+* Each stock tracks its previousPrice to enable comparison between updates and drive UI behaviour (colour + animation).
+* Transient UI behaviour (such as the flash animation) is handled locally within components using React state, as it is short-lived and purely presentational.
+
+## Data Fetching & Real-Time Updates
+* Initial data is fetched via Axios from /stocks.json
+* Real-time updates are handled through the provided subscribeToStockUpdates service
+* Updates are merged into existing state via Redux 
+This keeps data flow centralised and predictable while keeping components focused on rendering.
+
+## Animation Approach
+The price change “flash” is modelled as transient state within each StockItem.
+
+When a price update occurs:
+* a temporary flash state is set (up / down)
+* a CSS animation class is applied
+* the state is reset using the animationend event
+
+This avoids timing-based logic (e.g. setTimeout) and ensures the animation reliably retriggers on every update, even when values change in the same direction.
+
+## Testing
+
+* Reducer tests cover:
+    * loading and error state transitions
+    * stock updates and previousPrice logic
+* Component tests cover:
+    * loading state
+    * error state
+    * rendering of stock data
+
+The goal was to validate core behaviour without over-testing implementation details.
+
+## Trade-offs
+Redux is used here to align with the exercise requirements and to manage shared real-time state.
+
+In a production setting, I would likely consider a server-state library such as React Query or RTK Query for the initial fetch, while still keeping streaming updates in a central store.
+
+The implementation avoids over-abstraction in favour of readability and maintainability.
+
+## Project Structure
+src/
+  features/stocks/
+    StockList.tsx
+    StockItem.tsx
+    stocksSlice.ts
+    useStocks.ts
+    types.ts
+    *.test.ts(x)
+    *.module.css
+  store/
+    store.ts
+  services/
+    mockStockService.ts
+
+
+# ORIGINAL EXERCISE BRIEF
+
 # Frontend Take-Home Exercise: Real-Time Stock Dashboard
 
 Welcome to the frontend developer take-home exercise! 
