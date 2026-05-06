@@ -33,9 +33,9 @@ The focus of the implementation was to keep the code simple, predictable, and ea
 
 ## Data Fetching & Real-Time Updates
 * Initial data is fetched via Axios from /stocks.json
+* A simple runtime check (isStockArray) ensures the fetched data is in the expected format before storing it. This is intentionally lightweight given the controlled data source.
 * Real-time updates are handled through the provided subscribeToStockUpdates service
-* Updates are merged into existing state via Redux 
-This keeps data flow centralised and predictable while keeping components focused on rendering.
+* Updates are merged into existing state via Redux. This keeps data flow centralised and predictable while keeping components focused on rendering.
 
 ## Animation Approach
 The price change “flash” is modelled as transient state within each StockItem.
@@ -56,6 +56,7 @@ This avoids timing-based logic (e.g. setTimeout) and ensures the animation relia
     * loading state
     * error state
     * rendering of stock data
+    * price change indicators
 
 The goal was to validate core behaviour without over-testing implementation details.
 
