@@ -14,7 +14,6 @@ export const useStocks = () => {
   };
 
   useEffect(() => {
-
     const fetchStocks = async () => {
       dispatch(setLoading());
 

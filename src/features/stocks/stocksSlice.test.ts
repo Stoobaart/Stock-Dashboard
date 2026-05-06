@@ -41,7 +41,7 @@ describe("stocksSlice", () => {
 
     const state = reducer(
       startState,
-      updateStock({ id: "1", price: 110 })
+      updateStock({ id: "1", symbol: "AAPL", price: 110 })
     );
 
     expect(state.stocks[0].price).toBe(110);

@@ -1,5 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { StocksState } from './types';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { Stock, StocksState } from './types';
 
 const initialState: StocksState = {
   stocks: [],
@@ -11,12 +11,12 @@ const stocksSlice = createSlice({
   name: 'stocks',
   initialState,
   reducers: {
-    setStocks(state, action) {
+    setStocks(state, action: PayloadAction<Stock[]>) {
       state.stocks = action.payload;
       state.loading = false;
       state.error = null;
     },
-    updateStock(state, action) {
+    updateStock(state, action: PayloadAction<Stock>) {
       const updatedStock = action.payload;
       const existingStock = state.stocks.find(stock => stock.id === updatedStock.id);
 
@@ -29,7 +29,7 @@ const stocksSlice = createSlice({
       state.loading = true;
       state.error = null;
     },
-    setError(state, action) {
+    setError(state, action: PayloadAction<string>) {
       state.error = action.payload;
       state.loading = false;
     }

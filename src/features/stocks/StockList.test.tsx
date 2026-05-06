@@ -2,12 +2,8 @@ import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
 import stocksReducer from "./stocksSlice";
-import type { StocksState } from "./types"; 
 import StockList from "./StockList";
-
-type RootState = {
-  stocks: StocksState;
-};
+import { RootState } from "../../store/store";
 
 const renderWithStore = (preloadedState: RootState) => {
   const store = configureStore({
